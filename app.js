@@ -49,6 +49,7 @@ $(document).ready(function() {
      localStorage.removeItem( $('.user-input-title').val() ); // grab the title and plop here
      $(".user-input-title").val("");
      $(".user-input-body").val("");
+     $(".display-item").html('');
      // clearing display? what if I have multiple items?
      // after item is removed from local storage, redisplay items from local storage
      // refresh from storage?
