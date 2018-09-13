@@ -52,7 +52,7 @@
       - timeago.jquery or moment.js for user friendly timestamps
   (5) format the display of the items in a list (need to add more detail)
       - append to container
-(~10) majority of functionality via contextMenu.js upon click of listing
+(~10) majority of functionality via vue.js
       - filtering (show/hide)
       - etc...
   (2) scrollbar for list

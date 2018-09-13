@@ -3,22 +3,33 @@
   <head>
     <meta charset="UTF-8">
     <title>My First CRUD App</title>
+    <link rel="stylesheet" type="text/css" href="animate.min.css">
     <link rel="stylesheet" href="app.css">
     <script
             src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="moment.js"></script>
     <script src="app.js"></script>
 
   </head>
+
+  <h2 class="animated rubberBand">to do or not to do</h2>
+
   <body>
+  <div class ="bubbles">
+    <div class="container">
 
-  <input type="text" class="user-input-title" placeholder="Enter the Title">
-  <textarea class="user-input-body" placeholder="Enter the body of text"></textarea>
+      <input type="text" class="userInput" placeholder="what to do..."/>
+      <div id="addButton">add</div>
+      <p>double click to delete, right click to edit then 'enter' to confirm</p>
 
-  <button class="add-text-btn">add text</button>
-  <button class="del-text-btn">delete text</button>
+    <ul></ul>
 
-  <div class="display"></div>
+
+  </div>
+  </div>
   </body>
+
 </html>
