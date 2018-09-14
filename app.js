@@ -47,12 +47,10 @@ $(document).ready(function(){
     $('#addButton').on('click', function(){
       var input = $('.userInput').val();
       var toDo = $('.userInput').val() + '<div class="time"><em><font size="1">' + "  created " + moment(timeStamp).format('llll') + '</font></em></div>';
-
       if (input === ''){
         alert("empty input");
       } else {
           var key = $('.userInput').val();
-
           if (!localStorage.hasOwnProperty(key)) {
             var toDoListing = '<li class="toDos" data-storage-key="'+key+'" oncontextmenu="return false">' + toDo + '</li>';
             localStorage.setItem(key, toDo);
@@ -89,18 +87,14 @@ $(document).ready(function(){
     $(document).on('contextmenu', 'li', function(event) {
       var x = event.currentTarget;
       var y = $(this).html();
-
       var deleteKey = $(x).attr('data-storage-key');
       var current = y.slice(0, -58);
-
       $(this).html('<textarea>' + current + '</textarea>');
       $('textarea').select();
-
 
       $('.toDos').keyup('li', function (event) {
         var key = $('textarea').val();
         localStorage.removeItem(deleteKey);
-
         if (event.keyCode === 13 || event.keyCode === 27) {
           var current = $('textarea').val();
           var toDo = $('textarea').val() + '<div class="time"><em><font size="1">' + "  edited " + moment(timeStamp).format('llll') + '</font></em></div>';
@@ -117,13 +111,14 @@ $(document).ready(function(){
       var deleteKey = $(x).attr('data-storage-key');
       localStorage.removeItem(deleteKey);
       $(this).toggleClass('strike').fadeOut('slow');
+
     });
 
     $('.userInput').focus(function() {
       $(this).val('');
     });
 
-    // ANIMATE ON HOVER HELPER FUNCTIONS
+    // ANIMATE ON HOVER HELPER FUNCTION
     function animationHover(element, animation){
       element = $(element);
       element.hover(
@@ -134,15 +129,50 @@ $(document).ready(function(){
           //wait for animation to finish before removing classes
           window.setTimeout( function(){
             element.removeClass('animated ' + animation);
-          }, 1500);
+          }, 1000);
         });
     } // end of Animation for title
 
+    // ANIMATE ON CLICK HELPER FUNCITON
+    function animationClick(element, animation){
+      element = $(element);
+      element.click(
+        function() {
+          element.addClass('animated ' + animation);
+          //wait for animation to finish before removing classes
+          window.setTimeout( function(){
+            element.removeClass('animated ' + animation);
+          }, 1000);
+        }
+      );
+    };
+
+    // ANIMATE TITLE ON CLICK HELPER FUNCTION
+    function animateTitleOnClick(element, animation){
+      element = $(element);
+      element.click(
+        function() {
+          element.addClass('animated ' + animation);
+          $('h2').addClass('animated ' + animation);
+          //wait for animation to finish before removing classes
+          window.setTimeout( function(){
+            element.removeClass('animated ' + animation);
+            $('h2').removeClass('animated ' + animation);
+          }, 1000);
+        }
+      );
+    };
+
+    //ANIMATION FOR TITLE UPON LOAD
+    $('h2').addClass('animated rubberBand');
+    window.setTimeout(function(){
+      $('h2').removeClass('animated rubberBand');
+    }, 1000);
 
 
     //INVOKE ANIMATE FUNCTION ON SPECIFIC ELEMENTS
-    animationHover('h2', 'rubberBand');
-    animationHover('#addButton', 'rubberBand')
+    animateTitleOnClick('#addButton', 'rubberBand')
+
 
   }
 ); // end of doc.ready

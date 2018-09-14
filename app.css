@@ -3,8 +3,7 @@
     font-family: 'Luckiest Guy';
     font-style: normal;
     font-weight: 400;
-    src: local('Luckiest Guy Regular'), local('LuckiestGuy-Regular'), url(https://fonts.gstatic.com/s/luckiestguy/v8/_gP_1RrxsjcxVyin9l9n_j2hTd52.woff2) format('woff2');
-    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    src: url(https://fonts.gstatic.com/s/luckiestguy/v8/_gP_1RrxsjcxVyin9l9n_j2hTd52.woff2) ;
 }
 
 .bubbles {
@@ -45,19 +44,14 @@ p {
     font-size: 12px;
     color: white;
     margin-bottom: 20px;
+    text-shadow: 1px 1px black;
 }
 
 .container {
-    /*justify-items: center;*/
     padding: 1em;
     width: 45em;
     margin: auto;
-    /*background: #3498db;*/
     border-radius: 25px;
-}
-
-form {
-    display: inline-block;
 }
 
 input {
@@ -88,7 +82,12 @@ input {
 
 #addButton:hover {cursor: pointer;}
 
-ul {padding-left: 20px;}
+ul {
+    overflow-y: auto;
+    height: 550px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
 
 ul li {padding: 7px;color:#000;}
 
@@ -105,6 +104,7 @@ ul li:nth-child(even){
 li:hover{cursor: pointer;}
 
 li {
+    /*text-align: center;*/
     display: flex;
     flex-shrink: 1;
     list-style-type: none;
@@ -115,7 +115,7 @@ li {
 }
 
 .time {
-    margin-left: auto;
+    margin-left: 4px;
     align-content: end;
 }
 
